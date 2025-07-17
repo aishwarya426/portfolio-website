@@ -1,1 +1,3 @@
 # portfolio-website
+Creating this portfolio was an exciting journey where I got to bring together everything I enjoy about web development — clean design, responsive layouts, and a touch of interactivity. I used HTML and Tailwind CSS to build a site that feels minimal yet expressive, and added small animations and effects to make the experience smoother and more engaging. While it started as a technical task, it quickly became a reflection of my personality and passion for creating beautiful digital spaces. I learned a lot along the way, especially about structuring responsive content and improving user experience across devices.
+
