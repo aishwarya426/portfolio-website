@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aishwarya Tolani — ML Engineer & Full Stack Developer</title>
+<meta name="description" content="Aishwarya Tolani — Third-year B.Tech CSE student at VIT Chennai. Building AI-powered applications, machine learning systems, and full-stack products." />
+<meta name="theme-color" content="#FAF7F2" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<!-- Dark mode: set theme class before first paint to avoid flash -->
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: 'var(--bg)',
+          card: 'var(--card)',
+          accent: 'var(--accent)',
+          accentdark: 'var(--accent-dark)',
+          border: 'var(--border)',
+          ink: 'var(--ink)',
+          sub: 'var(--sub)',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<!-- AOS -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-bg text-ink font-body antialiased">
+
+  <!-- Cursor glow -->
+  <div id="cursorGlow" class="cursor-glow"></div>
+
+  <!-- Scroll progress bar -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar" class="nav-glass fixed top-0 inset-x-0 z-50">
+    <nav class="max-w-6xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
+      <a href="#home" class="font-display text-xl md:text-2xl tracking-tight text-ink">
+        Aishwarya<span class="text-accent">.</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-10 font-mono text-[13px] uppercase tracking-wide text-sub">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="hidden md:flex items-center gap-4">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="#contact" class="nav-cta">
+          Let's talk <i class="fa-solid fa-arrow-right text-[11px]"></i>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-3 md:hidden">
+        <button id="themeToggleMobile" class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="menuBtn" class="text-ink text-2xl" aria-label="Toggle menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="mobile-menu md:hidden">
+      <ul class="flex flex-col items-center gap-6 py-10 font-mono text-sm uppercase tracking-wide text-ink">
+        <li><a href="#home" class="mobile-link">Home</a></li>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#skills" class="mobile-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-link">Projects</a></li>
+        <li><a href="#education" class="mobile-link">Education</a></li>
+        <li><a href="#achievements" class="mobile-link">Achievements</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20 md:pt-20">
+    <!-- floating blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 md:px-8 grid md:grid-cols-[1.15fr_0.85fr] gap-14 items-center w-full">
+      <!-- Left -->
+      <div data-aos="fade-up" data-aos-duration="900">
+        <p class="font-mono text-accent text-sm mb-5 tracking-wide">~/home <span class="text-sub">— welcome to my terminal of a portfolio</span></p>
+
+        <h1 class="font-display font-light leading-[1.02] text-ink">
+          <span class="block text-3xl md:text-4xl text-sub font-normal mb-1">Hello, I'm</span>
+          <span class="block text-6xl md:text-8xl italic">Aishwarya Tolani</span>
+        </h1>
+
+        <p class="mt-6 text-2xl md:text-3xl text-sub font-display italic">
+          <span id="typed" class="text-accent not-italic font-medium"></span>
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-wide text-sub">
+          <span class="pill"><i class="fa-solid fa-graduation-cap mr-2 text-accent"></i>Third-Year B.Tech, VIT Chennai</span>
+          <span class="pill"><i class="fa-solid fa-star mr-2 text-accent"></i>CGPA 9.44</span>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="resume/Aishwarya_Tolani_Resume.pdf" download class="btn-primary group">
+            <span>Download Resume</span>
+            <i class="fa-solid fa-arrow-down-long transition-transform group-hover:translate-y-0.5"></i>
+          </a>
+          <a href="#projects" class="btn-secondary group">
+            <span>View Projects</span>
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="relative flex justify-center md:justify-end" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+        <div class="relative">
+          <div class="hero-ring"></div>
+          <div class="floating-photo">
+            <img src="image.jpg" alt="Portrait of Aishwarya Tolani" class="w-full h-full object-cover rounded-full" />
+          </div>
+          <div class="badge-float badge-float-1 font-mono">
+            <i class="fa-solid fa-brain text-accent"></i> ML / AI
+          </div>
+          <div class="badge-float badge-float-2 font-mono">
+            <i class="fa-solid fa-code text-accent"></i> Full Stack
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <span class="scroll-mouse"><span class="scroll-dot"></span></span>
+    </a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="py-28 md:py-36 px-6 md:px-8 relative">
+    <div class="max-w-6xl mx-auto">
+      <p class="font-mono text-accent text-sm mb-4" data-aos="fade-up">~/about</p>
+      <h2 class="font-display text-4xl md:text-5xl mb-16" data-aos="fade-up" data-aos-delay="80">About Me</h2>
+
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right" data-aos-duration="800">
+          <p class="text-lg md:text-xl leading-relaxed text-ink">
+            I'm a third-year B.Tech student at <span class="text-accent font-medium">VIT Chennai</span>, specializing in Cyber Physical Systems.
+          </p>
+          <p class="mt-5 text-base md:text-lg leading-relaxed text-sub">
+            I enjoy building AI-powered applications, machine learning systems, full-stack web applications, and intelligent software that solves real-world problems — from a 3D Ayurvedic storefront to demand-forecasting engines.
+          </p>
+
+          <p class="mt-8 font-mono text-xs uppercase tracking-wide text-sub mb-3">Currently exploring</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Backend Development</span>
+            <span class="tag">Cloud Computing</span>
+          </div>
+
+          <p class="mt-8 text-base md:text-lg leading-relaxed text-sub italic">
+            I love turning ideas into polished products that combine technology, design, and user experience.
+          </p>
+        </div>
+
+        <div class="relative flex items-center justify-center" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+          <div class="about-orbit">
+            <div class="orbit-core">
+              <i class="fa-solid fa-leaf text-3xl text-accent"></i>
+            </div>
+            <div class="orbit-ring orbit-ring-1">
+              <span class="orbit-icon" style="--angle:0deg"><i class="fa-brands fa-python"></i></span>
+              <span class="orbit-icon" style="--angle:60deg"><i class="fa-solid fa-diagram-project"></i></span>
+              <span class="orbit-icon" style="--angle:120deg"><i class="fa-solid fa-server"></i></span>
+              <span class="orbit-icon" style="--angle:180deg"><i class="fa-solid fa-database"></i></span>
+              <span class="orbit-icon" style="--angle:240deg"><i class="fa-brands fa-react"></i></span>
+              <span class="orbit-icon" style="--angle:300deg"><i class="fa-solid fa-robot"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="py-28 md:py-36 px-6 md:px-8 section-alt relative">
+    <div class="max-w-6xl mx-auto">
+      <p class="font-mono text-accent text-sm mb-4" data-aos="fade-up">$ skills --list</p>
+      <h2 class="font-display text-4xl md:text-5xl mb-16" data-aos="fade-up" data-aos-delay="80">Skills &amp; Tools</h2>
+
+      <div class="grid md:grid-cols-2 gap-x-12 gap-y-14">
+
+        <div data-aos="fade-up">
+          <h3 class="skill-cat"><i class="fa-solid fa-terminal"></i>Programming Languages</h3>
+          <div class="skill-grid">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">C++</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">TypeScript</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="80">
+          <h3 class="skill-cat"><i class="fa-solid fa-globe"></i>Web Development</h3>
+          <div class="skill-grid">
+            <span class="skill-chip">HTML</span>
+            <span class="skill-chip">CSS</span>
+            <span class="skill-chip">Tailwind</span>
+            <span class="skill-chip">React</span>
+            <span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Express</span>
+            <span class="skill-chip">NestJS</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up">
+          <h3 class="skill-cat"><i class="fa-solid fa-database"></i>Databases</h3>
+          <div class="skill-grid">
+            <span class="skill-chip">PostgreSQL</span>
+            <span class="skill-chip">MongoDB</span>
+            <span class="skill-chip">Redis</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="80">
+          <h3 class="skill-cat"><i class="fa-solid fa-wrench"></i>Tools</h3>
+          <div class="skill-grid">
+            <span class="skill-chip">Git</span>
+            <span class="skill-chip">GitHub</span>
+            <span class="skill-chip">Docker</span>
+            <span class="skill-chip">VS Code</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-2" data-aos="fade-up">
+          <h3 class="skill-cat"><i class="fa-solid fa-brain"></i>Machine Learning</h3>
+          <div class="skill-grid">
+            <span class="skill-chip">NumPy</span>
+            <span class="skill-chip">Pandas</span>
+            <span class="skill-chip">Scikit-Learn</span>
+            <span class="skill-chip">TensorFlow</span>
+            <span class="skill-chip">OpenCV</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="py-28 md:py-36 px-6 md:px-8 relative">
+    <div class="max-w-6xl mx-auto">
+      <p class="font-mono text-accent text-sm mb-4" data-aos="fade-up">~/projects</p>
+      <h2 class="font-display text-4xl md:text-5xl mb-16" data-aos="fade-up" data-aos-delay="80">Featured Projects</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+  <!-- MoveSphere -->
+  <article class="project-card" data-aos="fade-up">
+
+    <div class="project-media">
+        <img src="movesphere.jpg" alt="MoveSphere" loading="lazy">
+    </div>
+
+    <div class="p-7">
+
+        <h3 class="font-display text-2xl mb-2">
+            MoveSphere
+        </h3>
+
+        <p class="text-sub text-sm leading-relaxed mb-4">
+            A full-stack relocation and moving platform that enables users to discover,
+            compare, and book reliable moving services through an intuitive interface,
+            secure authentication, and location-based service management.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-5">
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">Express</span>
+            <span class="tech-pill">MongoDB</span>
+            <span class="tech-pill">Google Maps API</span>
+        </div>
+
+        <div class="flex gap-4 font-mono text-xs uppercase tracking-wide">
+
+            <a href="https://github.com/aishwarya426/movesphere.git"
+               target="_blank"
+               class="project-link">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+
+            <a href="https://movesphere-beta.vercel.app"
+               target="_blank"
+               class="project-link">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+  <!-- MedSimplify -->
+  <article class="project-card" data-aos="fade-up" data-aos-delay="80">
+
+<div class="project-media">
+<img src="medsimplify.jpg" alt="MedSimplify">
+</div>
+
+<div class="p-7">
+
+<h3 class="font-display text-2xl mb-2">
+MedSimplify
+</h3>
+
+<p class="text-sub text-sm leading-relaxed mb-4">
+AI-powered healthcare platform that simplifies complex medical reports into
+easy-to-understand summaries with intelligent insights, report history,
+and visual analytics.
+</p>
+
+<div class="flex flex-wrap gap-2 mb-5">
+<span class="tech-pill">React</span>
+<span class="tech-pill">Python</span>
+<span class="tech-pill">OpenAI API</span>
+<span class="tech-pill">Chart.js</span>
+<span class="tech-pill">PDF Processing</span>
+</div>
+
+<div class="flex gap-4 font-mono text-xs uppercase tracking-wide">
+
+<a href="https://github.com/aishwarya426/med-simplify.git"
+target="_blank"
+class="project-link">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a>
+
+<a href="https://med-simplify-omega.vercel.app/"
+target="_blank"
+class="project-link">
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+Live Demo
+</a>
+
+</div>
+
+</div>
+
+</article>
+  <!-- Heart Failure Prediction -->
+
+ <article class="project-card" data-aos="fade-up">
+
+<div class="project-media">
+<img src="heartfailure.jpg" alt="Heart Failure Prediction">
+</div>
+
+<div class="p-7">
+
+<h3 class="font-display text-2xl mb-2">
+Heart Failure Prediction
+</h3>
+
+<p class="text-sub text-sm leading-relaxed mb-4">
+Machine learning application that predicts the likelihood of heart failure
+using clinical parameters and supervised learning algorithms to support
+early diagnosis and healthcare decision-making.
+</p>
+
+<div class="flex flex-wrap gap-2 mb-5">
+<span class="tech-pill">Python</span>
+<span class="tech-pill">Scikit-Learn</span>
+<span class="tech-pill">Pandas</span>
+<span class="tech-pill">NumPy</span>
+<span class="tech-pill">Streamlit</span>
+</div>
+
+<div class="flex gap-4 font-mono text-xs uppercase tracking-wide">
+
+<a href="https://github.com/aishwarya426/heart-failure-predict.git"
+target="_blank"
+class="project-link">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a>
+
+<a href=" https://heart-failure-predict-x9pu.onrender.com"
+target="_blank"
+class="project-link">
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+Live Demo
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+  <!-- Gesture Controlled Virtual Mouse -->
+
+<article class="project-card" data-aos="fade-up" data-aos-delay="80">
+
+    <div class="project-media">
+        <img src="gesturemouse.jpg"
+             alt="Gesture Controlled Virtual Mouse"
+             loading="lazy">
+    </div>
+
+    <div class="p-7">
+
+        <h3 class="font-display text-2xl mb-2">
+            Gesture Controlled Virtual Mouse
+        </h3>
+
+        <p class="text-sub text-sm leading-relaxed mb-4">
+            A computer vision-based virtual mouse that enables users to control
+            the cursor using real-time hand gestures captured through a webcam.
+            Built using MediaPipe for hand tracking and OpenCV for image
+            processing, the application supports cursor movement, left and right
+            clicks, drag-and-drop operations, and touch-free interaction for an
+            intuitive user experience.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-5">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">OpenCV</span>
+            <span class="tech-pill">MediaPipe</span>
+            <span class="tech-pill">PyAutoGUI</span>
+            <span class="tech-pill">Computer Vision</span>
+        </div>
+
+        <div class="flex gap-4 font-mono text-xs uppercase tracking-wide">
+
+            <a href="https://github.com/aishwarya426/gesture-controlled-virtual-mouse"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-link">
+                <i class="fa-brands fa-github"></i>
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+  <!-- CurePlus -->
+<article class="project-card md:col-span-2" data-aos="fade-up">
+
+  <div class="project-media">
+    <img src="cureplus.jpg" alt="CurePlus" loading="lazy">
+  </div>
+
+  <div class="p-7">
+
+    <div class="flex items-center justify-between flex-wrap gap-3 mb-2">
+
+      <h3 class="font-display text-2xl">
+        CurePlus
+      </h3>
+
+      <span class="tech-pill">
+        🚧 Under Development
+      </span>
+
+    </div>
+
+    <p class="text-sub text-sm leading-relaxed mb-4">
+      CurePlus is a comprehensive healthcare platform currently under development,
+      designed to simplify healthcare through appointment scheduling, AI-powered
+      medical report analysis, legal support, secure patient management, and an
+      intuitive user experience. The platform aims to provide a one-stop solution
+      for patients, doctors, and healthcare providers.
+    </p>
+
+    <div class="flex flex-wrap gap-2 mb-5">
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">Node.js</span>
+      <span class="tech-pill">Express</span>
+      <span class="tech-pill">MongoDB</span>
+      <span class="tech-pill">JWT</span>
+      <span class="tech-pill">Tailwind CSS</span>
+    </div>
+
+    <div class="flex gap-4 font-mono text-xs uppercase tracking-wide">
+
+      <a href="https://github.com/aishwarya426/cureplus"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="project-link">
+        <i class="fa-brands fa-github"></i>
+        GitHub
+      </a>
+
+      <span class="project-link">
+        🚧 Currently Under Development
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
+
+  <!-- 3D Website -->
+
+  <article class="project-card md:col-span-2" data-aos="fade-up">
+
+    <div class="project-media">
+      <img src="3d.jpg" alt="3D Website">
+    </div>
+
+    <div class="p-7">
+
+      <div class="flex items-center justify-between flex-wrap gap-3 mb-2">
+
+        <h3 class="font-display text-2xl">
+          Immersive 3D Web Experience
+        </h3>
+
+        <span class="tech-pill">
+          🚧 Under Development
+        </span>
+
+      </div>
+
+      <p class="text-sub text-sm leading-relaxed mb-4">
+        Building a modern immersive 3D web experience featuring realistic
+        environments, interactive navigation, backend integration, smooth
+        animations, and AI-ready architecture using the latest web technologies.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tech-pill">Next.js</span>
+        <span class="tech-pill">TypeScript</span>
+        <span class="tech-pill">Three.js</span>
+        <span class="tech-pill">React Three Fiber</span>
+        <span class="tech-pill">Tailwind CSS</span>
+        <span class="tech-pill">Supabase</span>
+      </div>
+
+      <div class="flex gap-4 font-mono text-xs uppercase tracking-wide">
+
+        <span class="project-link">
+          🚧 Currently Under Development
+        </span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+  <!-- Smart Irrigation -->
+
+  <article class="project-card" data-aos="fade-up">
+
+    <div class="project-media">
+      <img src="smartirrigation.jpg" alt="Smart Irrigation">
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-display text-2xl mb-2">
+        Smart Irrigation System
+      </h3>
+
+      <p class="text-sub text-sm leading-relaxed mb-4">
+        ESP32-powered IoT irrigation controller that automates watering based on
+        real-time soil moisture levels with both manual and automatic modes.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tech-pill">ESP32</span>
+        <span class="tech-pill">IoT</span>
+        <span class="tech-pill">Embedded C++</span>
+        <span class="tech-pill">Sensors</span>
+      </div>
+
+    </div>
+
+  </article>
+
+  <!-- Smart Parking System -->
+
+<article class="project-card" data-aos="fade-up">
+
+    <div class="project-media">
+        <img src="smartparking.jpeg"
+             alt="Smart Parking System"
+             loading="lazy">
+    </div>
+
+    <div class="p-7">
+
+        <h3 class="font-display text-2xl mb-2">
+            Smart Parking System
+        </h3>
+
+        <p class="text-sub text-sm leading-relaxed mb-4">
+            An intelligent parking management system designed to automate vehicle
+            detection and parking slot monitoring using digital electronics and
+            sensor integration. The system detects vehicle entry and exit,
+            updates parking slot availability in real time, and displays the
+            number of vacant parking spaces using a 7-segment display.
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+            <span class="tech-pill">Proteus</span>
+            <span class="tech-pill">Digital Electronics</span>
+            <span class="tech-pill">HX711</span>
+            <span class="tech-pill">Load Cell</span>
+            <span class="tech-pill">INA125</span>
+            <span class="tech-pill">LM358N</span>
+            <span class="tech-pill">74LS74</span>
+            <span class="tech-pill">Logic Gates</span>
+        </div>
+
+    </div>
+
+</article>
+
+  <!-- PicoTrack -->
+
+  <article class="project-card" data-aos="fade-up">
+
+    <div class="project-media">
+      <img src="picotracker.png" alt="PicoTrack">
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-display text-2xl mb-2">
+        PicoTrack GPS Tracker
+      </h3>
+
+      <p class="text-sub text-sm leading-relaxed mb-4">
+        Portable IoT GPS tracking system built using Raspberry Pi Pico, GPS, and
+        GSM modules for real-time location tracking and cloud connectivity.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tech-pill">Raspberry Pi Pico</span>
+        <span class="tech-pill">GPS</span>
+        <span class="tech-pill">SIM800L</span>
+        <span class="tech-pill">Blynk</span>
+      </div>
+
+    </div>
+
+  </article>
+
+</div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="py-28 md:py-36 px-6 md:px-8 section-alt relative">
+    <div class="max-w-4xl mx-auto">
+      <p class="font-mono text-accent text-sm mb-4" data-aos="fade-up">~/education</p>
+      <h2 class="font-display text-4xl md:text-5xl mb-20" data-aos="fade-up" data-aos-delay="80">My Journey</h2>
+
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="font-mono text-accent text-xs uppercase tracking-wide">2024</span>
+            <h3 class="font-display text-xl mt-1">Started B.Tech at VIT Chennai</h3>
+            <p class="text-sub text-sm mt-1">Began my CSE journey, specializing in Cyber Physical Systems.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="80">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="font-mono text-accent text-xs uppercase tracking-wide">2025</span>
+            <h3 class="font-display text-xl mt-1">Built Full Stack Projects</h3>
+            <p class="text-sub text-sm mt-1">Shipped end-to-end applications, sharpening my backend and system-design instincts.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="font-mono text-accent text-xs uppercase tracking-wide">2026</span>
+            <h3 class="font-display text-xl mt-1">Started AI &amp; Machine Learning Journey</h3>
+            <p class="text-sub text-sm mt-1">Went deep on ML fundamentals, deep learning, and applied AI systems.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="80">
+          <div class="timeline-dot timeline-dot-active"></div>
+          <div class="timeline-content">
+            <span class="font-mono text-accent text-xs uppercase tracking-wide">Present</span>
+            <h3 class="font-display text-xl mt-1">Building Intelligent Applications</h3>
+            <p class="text-sub text-sm mt-1">Combining ML, full-stack engineering, and thoughtful design into real products.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section id="achievements" class="py-28 md:py-36 px-6 md:px-8 relative">
+    <div class="max-w-6xl mx-auto">
+      <p class="font-mono text-accent text-sm mb-4" data-aos="fade-up">~/achievements</p>
+      <h2 class="font-display text-4xl md:text-5xl mb-16" data-aos="fade-up" data-aos-delay="80">By The Numbers</h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
+        <div class="counter-card" data-aos="zoom-in">
+          <span class="counter font-display" data-target="9.44" data-decimals="2">0</span>
+          <p class="font-mono text-xs uppercase tracking-wide text-sub mt-2">CGPA</p>
+        </div>
+        <div class="counter-card" data-aos="zoom-in" data-aos-delay="80">
+          <span class="counter font-display" data-target="5" data-suffix="+">0</span>
+          <p class="font-mono text-xs uppercase tracking-wide text-sub mt-2">Projects</p>
+        </div>
+        <div class="counter-card" data-aos="zoom-in">
+          <span class="counter font-display" data-target="50" data-suffix="+">0</span>
+          <p class="font-mono text-xs uppercase tracking-wide text-sub mt-2">LeetCode</p>
+        </div>
+        <div class="counter-card" data-aos="zoom-in" data-aos-delay="80">
+          <span class="counter font-display" data-target="20" data-suffix="+">0</span>
+          <p class="font-mono text-xs uppercase tracking-wide text-sub mt-2">Technologies</p>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <p class="font-mono text-accent text-sm mb-4" data-aos="fade-up">~/certifications</p>
+      <h3 class="font-display text-3xl md:text-4xl mb-12" data-aos="fade-up" data-aos-delay="80">Certifications</h3>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="cert-card" data-aos="fade-up">
+          <i class="fa-solid fa-brain"></i>
+          <h4>Machine Learning</h4>
+        </div>
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="60">
+          <i class="fa-brands fa-python"></i>
+          <h4>Python</h4>
+        </div>
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="120">
+          <i class="fa-solid fa-globe"></i>
+          <h4>Web Development</h4>
+        </div>
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="180">
+          <i class="fa-solid fa-network-wired"></i>
+          <h4>Deep Learning</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="py-28 md:py-36 px-6 md:px-8 section-alt relative">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="font-mono text-accent text-sm mb-4" data-aos="fade-up">~/contact</p>
+      <h2 class="font-display text-4xl md:text-6xl leading-tight mb-8" data-aos="fade-up" data-aos-delay="80">
+        Let's Build Something<br /><span class="italic text-accent">Amazing Together</span>
+      </h2>
+      <p class="text-sub text-lg max-w-xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="120">
+        Have a role, a project, or just an idea worth talking through? My inbox is open.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="160">
+        <a href="mailto:aishwarya.tolani@example.com" class="contact-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a href="#" class="contact-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="#" class="contact-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="resume/Aishwarya_Tolani_Resume.pdf" download class="contact-btn"><i class="fa-solid fa-file-arrow-down"></i> Resume</a>
+      </div>
+
+      <form class="contact-form text-left" data-aos="fade-up" data-aos-delay="200">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="form-field">
+            <input type="text" id="name" placeholder=" " required />
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form-field">
+            <input type="email" id="email" placeholder=" " required />
+            <label for="email">Your Email</label>
+          </div>
+        </div>
+        <div class="form-field mt-6">
+          <textarea id="message" rows="5" placeholder=" " required></textarea>
+          <label for="message">Your Message</label>
+        </div>
+        <button type="submit" class="btn-primary mt-8 mx-auto">
+          <span>Send Message</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="py-10 px-6 md:px-8 border-t border-border text-center">
+    <p class="font-mono text-xs uppercase tracking-wide text-sub">Designed &amp; Developed by</p>
+    <p class="font-display text-xl mt-1">Aishwarya Tolani</p>
+    <p class="text-xs text-sub mt-3">Made with HTML, Tailwind CSS and JavaScript.</p>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.12"></script>
+  <script src="script.js"></script>
+</body>
+</html>
